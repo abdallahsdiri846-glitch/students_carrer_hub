@@ -1,0 +1,256 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout */
+body {
+  display: flex;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #fff;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: rgba(0,0,0,0.85);
+  padding: 2rem 1rem;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar .logo h2 {
+  color: #ff6f61;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+.sidebar nav ul li {
+  margin: 1rem 0;
+}
+
+.sidebar nav a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.sidebar nav a:hover {
+  color: #ff6f61;
+}
+
+.math-box {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.math-box h3 {
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+}
+
+.math-box .math-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: #ff6f61;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.math-box .math-link:hover {
+  background: #e85c50;
+}
+
+/* Main Container */
+.main-container {
+  margin-left: 280px;
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ff6f61, #e85c50);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.hero .cta {
+  background: #ffd700;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hero .cta:hover {
+  transform: scale(1.1);
+}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Tool Blocks */
+.tool {
+  background: rgba(0,0,0,0.3);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.tool h3 {
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+/* Inputs & Buttons */
+textarea, input, select {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: #ff6f61;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #e85c50;
+  transform: scale(1.05);
+}
+
+/* Output Boxes */
+.response-box {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Quiz Styling (Answer + Checkboxes A/B/C/D) */
+.quiz-question {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-question p {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-options {
+  margin-top: 0.5rem;
+}
+
+.quiz-options .answer-label {
+  display: block;
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.quiz-options input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+#quizCorrectBtn {
+  margin-top: 15px;
+  background: #ffc107;
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  display: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255,255,255,0.1);
+  margin-top: 3rem;
+  border-radius: 12px;
+}
+.quiz-question {
+  margin: 12px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.quiz-options {
+  margin-top: 6px;
+}
+
+.answer-label {
+  display: block;
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5); /* يكبر الـ checkbox */
+  margin-right: 8px;
+  cursor: pointer;
+}

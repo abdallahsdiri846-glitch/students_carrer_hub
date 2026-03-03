@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ultimate Student & Career AI Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>🎓 AI Hub</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#text-ai">Text AI</a></li>
+        <li><a href="#study-assistant">Study Assistant</a></li>
+        <li><a href="#career-assistant">Career Assistant</a></li>
+      </ul>
+    </nav>
+    <div class="math-box">
+      <h3>📘 Math Exercises</h3>
+      <p>Prepare for BAC Tunisia with interactive math practice.</p>
+      <a href="" class="math-link">Go to Math Page</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>🚀 Welcome to the Student & Career AI Hub</h1>
+      <p>Study smarter, prepare for exams, and build your career tools in one place.</p>
+      <button class="cta">Start Exploring</button>
+    </section>
+
+    <!-- Text AI -->
+    <section id="text-ai" class="card">
+      <h2>🤖 Text AI</h2>
+      <textarea id="textInput" placeholder="Type your question..."></textarea>
+      <button onclick="handleTextAI()">Get Answer</button>
+      <div id="textOutput" class="response-box"></div>
+    </section>
+
+    <!-- Study Assistant -->
+    <section id="study-assistant" class="card">
+      <h2>📚 Study Assistant</h2>
+
+      <!-- Notes Summarizer -->
+      <div class="tool">
+        <h3>Notes Summarizer</h3>
+        <textarea id="notesInput" placeholder="Paste your lesson or text..."></textarea>
+        <button onclick="handleNotes()">Summarize</button>
+        <div id="notesOutput" class="response-box"></div>
+      </div>
+
+      <!-- Quiz Generator -->
+      <div class="tool">
+        <h3>Quiz Generator</h3>
+        <input type="text" id="quizTopic" placeholder="Enter subject/topic...">
+        <select id="quizDifficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hardcore">Hardcore</option>
+        </select>
+        <button onclick="handleQuiz()">Generate Quiz</button>
+
+        <!-- مكان عرض الأسئلة -->
+        <div id="quizOutput"></div>
+
+        <!-- زر التصحيح -->
+        <button id="quizCorrectBtn" style="display:none;" onclick="handleQuizCorrection()">Correct & Explain</button>
+
+        <!-- مكان عرض التصحيح -->
+        <div id="quizCorrectionOutput" class="response-box"></div>
+      </div>
+
+      <!-- Flashcards Tool -->
+      <div class="tool">
+        <h3>Flashcards Tool</h3>
+        <textarea id="flashInput" placeholder="Enter terms separated by commas..."></textarea>
+        <button onclick="handleFlashcards()">Generate Flashcards</button>
+        <div id="flashOutput"></div>
+      </div>
+
+      <!-- Revision Planner -->
+      <div class="tool">
+        <h3>Revision Planner</h3>
+        <textarea id="plannerInput" placeholder="Enter subjects and exam dates..."></textarea>
+        <button onclick="handlePlanner()">Create Plan</button>
+        <div id="plannerOutput" class="response-box"></div>
+      </div>
+    </section>
+
+    <!-- Career Assistant -->
+    <section id="career-assistant" class="card">
+      <h2>💼 Career Assistant</h2>
+
+      <!-- CV Generator -->
+      <div class="tool">
+        <h3>CV Generator</h3>
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="text" id="email" placeholder="Your Email">
+        <textarea id="experience" placeholder="Work Experience"></textarea>
+        <button onclick="handleCV()">Generate CV</button>
+        <div id="cvOutput" class="response-box"></div>
+      </div>
+
+      <!-- Cover Letter Generator -->
+      <div class="tool">
+        <h3>Cover Letter Generator</h3>
+        <textarea id="coverInput" placeholder="Enter job position and details..."></textarea>
+        <button onclick="handleCover()">Generate Cover Letter</button>
+        <div id="coverOutput" class="response-box"></div>
+      </div>
+
+      <!-- Interview Simulator -->
+      <div class="tool">
+        <h3>Interview Simulator</h3>
+        <button onclick="handleInterview()">Start Simulation</button>
+        <div id="interviewOutput" class="response-box"></div>
+      </div>
+
+      <!-- LinkedIn Profile Helper -->
+      <div class="tool">
+        <h3>LinkedIn Profile Helper</h3>
+        <textarea id="linkedinInput" placeholder="Enter your profile summary..."></textarea>
+        <button onclick="handleLinkedIn()">Get Suggestions</button>
+        <div id="linkedinOutput" class="response-box"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Student & Career AI Hub | Built by Abdallah & Copilot</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script3.js') }}"></script>
+
+</body>
+</html>
