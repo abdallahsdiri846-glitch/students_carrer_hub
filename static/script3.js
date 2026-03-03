@@ -13,11 +13,10 @@ function handleTextAI() {
   .then(data => {
     document.getElementById("textOutput").innerHTML =
       `<div class="response-box"><strong>AI Response:</strong><br>${data.reply}</div>`;
-    inputField.value = ""; // مسح النص بعد الإرسال
+    inputField.value = "";
   });
 }
 
-// تشغيل Text AI عند الضغط على Enter
 document.getElementById("textInput").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -39,15 +38,7 @@ function handleQuiz() {
   })
   .then(res => res.json())
   .then(data => {
-    console.log("✅ Raw data from server:", data);
-
-    if (Array.isArray(data)) {
-      currentQuiz = data;
-    } else {
-      currentQuiz = data.questions;
-    }
-
-    console.log("✅ Quiz stored:", currentQuiz);
+    currentQuiz = Array.isArray(data) ? data : data.questions;
 
     const quizContainer = document.getElementById("quizOutput");
     quizContainer.innerHTML = "<h4>Quiz:</h4>";
@@ -77,7 +68,7 @@ function handleQuiz() {
       qDiv.appendChild(optionsDiv);
       quizContainer.appendChild(qDiv);
     });
-    console.log("✅ Quiz HTML:", quizContainer.innerHTML);
+
     document.getElementById("quizCorrectBtn").style.display = "block";
   });
 }
@@ -101,6 +92,122 @@ function handleQuizCorrection() {
   .then(data => {
     document.getElementById("quizCorrectionOutput").innerHTML =
       `<div class="response-box"><strong>Correction & Explanation:</strong><br>${data.explanation}</div>`;
+  });
+}
+
+// ---------------- SUMMARIZER ----------------
+function handleNotes() {
+  const notes = document.getElementById("notesInput").value.trim();
+  if (!notes) return;
+
+  fetch("/summarize", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ notes })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("notesOutput").innerHTML =
+      `<div class="response-box"><strong>Summary:</strong><br>${data.summary}</div>`;
+  });
+}
+
+// ---------------- FLASHCARDS ----------------
+function handleFlashcards() {
+  const terms = document.getElementById("flashInput").value.trim();
+  if (!terms) return;
+
+  fetch("/flashcards", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ terms })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("flashOutput").innerHTML =
+      `<div class="response-box"><strong>Flashcards:</strong><br>${data.flashcards}</div>`;
+  });
+}
+
+// ---------------- PLANNER ----------------
+function handlePlanner() {
+  const subjects = document.getElementById("plannerInput").value.trim();
+  if (!subjects) return;
+
+  fetch("/planner", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ subjects })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("plannerOutput").innerHTML =
+      `<div class="response-box"><strong>Plan:</strong><br>${data.plan}</div>`;
+  });
+}
+
+// ---------------- CV GENERATOR ----------------
+function handleCV() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const experience = document.getElementById("experience").value.trim();
+
+  fetch("/cv", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, experience })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("cvOutput").innerHTML =
+      `<div class="response-box"><strong>CV:</strong><br>${data.cv}</div>`;
+  });
+}
+
+// ---------------- COVER LETTER ----------------
+function handleCover() {
+  const job = document.getElementById("coverInput").value.trim();
+  if (!job) return;
+
+  fetch("/cover", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ job })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("coverOutput").innerHTML =
+      `<div class="response-box"><strong>Cover Letter:</strong><br>${data.cover}</div>`;
+  });
+}
+
+// ---------------- INTERVIEW SIMULATOR ----------------
+function handleInterview() {
+  fetch("/interview", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("interviewOutput").innerHTML =
+      `<div class="response-box"><strong>Interview:</strong><br>${data.interview}</div>`;
+  });
+}
+
+// ---------------- LINKEDIN HELPER ----------------
+function handleLinkedIn() {
+  const profile = document.getElementById("linkedinInput").value.trim();
+  if (!profile) return;
+
+  fetch("/linkedin", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ profile })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("linkedinOutput").innerHTML =
+      `<div class="response-box"><strong>LinkedIn Suggestions:</strong><br>${data.linkedin}</div>`;
   });
 }
 
