@@ -4,8 +4,9 @@ function handleTextAI() {
   const input = inputField.value.trim();
   if (!input) return;
 
-  fetch("http://127.0.0.1:5000/text-ai", {
-    method: "POST", headers: { "Content-Type": "application/json" },
+  fetch("/text-ai", {
+    method: "POST", 
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ prompt: input })
   })
   .then(res => res.json())
@@ -31,15 +32,15 @@ function handleQuiz() {
   const topic = document.getElementById("quizTopic").value;
   const difficulty = document.getElementById("quizDifficulty").value;
 
-  fetch("http://127.0.0.1:5000/quiz", {
-    method: "POST", headers: { "Content-Type": "application/json" },
+  fetch("/quiz", {
+    method: "POST", 
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ topic, difficulty })
   })
   .then(res => res.json())
   .then(data => {
     console.log("✅ Raw data from server:", data);
 
-    // لو السيرفر بيرجع مباشرة Array
     if (Array.isArray(data)) {
       currentQuiz = data;
     } else {
@@ -79,7 +80,6 @@ function handleQuiz() {
     console.log("✅ Quiz HTML:", quizContainer.innerHTML);
     document.getElementById("quizCorrectBtn").style.display = "block";
   });
-  
 }
 
 function handleQuizCorrection() {
@@ -92,8 +92,9 @@ function handleQuizCorrection() {
     answers.push({ question: q.question, selected });
   });
 
-  fetch("http://127.0.0.1:5000/quiz-correct", {
-    method: "POST", headers: { "Content-Type": "application/json" },
+  fetch("/quiz-correct", {
+    method: "POST", 
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ answers })
   })
   .then(res => res.json())
